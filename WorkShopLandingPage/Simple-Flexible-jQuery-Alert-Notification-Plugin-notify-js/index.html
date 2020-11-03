@@ -1,0 +1,364 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery notify.js Examples</title>
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/notify.css">
+	<link rel="stylesheet" type="text/css" href="css/prettify.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style type="text/css">
+		html, body{
+			font-family: "Noto Sans",Arial,sans-serif;
+			font-size: 14px;
+			line-height: 1.428571429;
+			color: #333;
+			padding: 0;
+			margin: 0;
+		}
+		h1.title{
+			margin-bottom: 0;
+		}
+		h2{
+			margin-bottom: 20px;
+		}
+		hr{
+			margin-bottom: 30px;
+		}
+		small{
+			background-color: #ddd;
+			border-radius: 4px;
+			padding: 2px 4px;
+			color: #333;
+		}
+		.prettyprint{
+			padding: 10px 15px;
+			background-color: #FFF;
+			border: 1px solid #e1e1e8;
+		}
+		.button-list{
+			padding: 5px 0 15px 0;
+		}
+		.button-list > button{
+			margin-right: 5px;
+		}
+
+		.bs-callout{
+			padding: 20px;
+			margin: 20px 0;
+			border: 1px solid #eee;
+			border-left-width: 5px;
+			border-radius: 3px;
+		}
+		.bs-callout-warning{
+			border-left-color: #aa6708;
+		}
+		.bs-callout-info{
+			border-left-color: #1b809e;
+		}
+		.bs-callout h4{
+			margin-top: 0;
+			margin-bottom: 5px;
+		}
+		.bs-callout-warning h4{
+			color: #aa6708;
+		}
+		.bs-callout-info h4{
+			color: #1b809e;
+		}
+		.bs-callout p{
+			line-height: 150%;
+		}
+		.bs-callout p:last-child{
+			margin-bottom: 0;
+		}
+		.my-class{
+			background: #304CD8;
+			background: -webkit-linear-gradient(left, #304CD8 0%, #9F3762 100%);
+			background: -ms-linear-gradient(left, #304CD8 0%, #9F3762 100%);
+			background: linear-gradient(to right, #304CD8 0%, #9F3762 100%);
+			color: #fff;
+			font-size: 25px;
+			padding: 35px;
+			text-align: center;
+		}
+    </style>
+</head>
+<body>
+<div class="container">
+	<h1 class="title">jQuery notify.js Examples</h1>
+    <div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+	<hr>
+	<p>Basic</p>
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="usage()">Alert!</button>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!");</pre>
+</div>
+<div class="container">
+	<h1 class="title">Options</h1>
+	<hr>
+	<h2>Type</h2>
+
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="api_type('default')">default</button>
+		<button type="button" class="btn btn-default" onclick="api_type('toast')">toast</button>
+		<button type="button" class="btn btn-default" onclick="api_type('info')">info</button>
+		<button type="button" class="btn btn-default" onclick="api_type('success')">success</button>
+		<button type="button" class="btn btn-default" onclick="api_type('danger')">danger</button>
+		<button type="button" class="btn btn-default" onclick="api_type('warning')">warning</button>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!", {type:"info"});</pre>
+</div>
+<div class="container">
+	<h2>Position</h2>
+
+	
+	<div class="row">
+		<div class="col-md-5">
+			<table class="table">
+				<tr>
+					<th width="10%">align</th>
+					<td>
+						<label class="radio-inline">
+							<input type="radio" name="align" value="left"> left
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="align" value="center" checked> center
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="align" value="right"> right
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<th>verticalAlign</th>
+					<td>
+						<label class="radio-inline">
+							<input type="radio" name="verticalAlign" value="top" checked> top
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="verticalAlign" value="middle"> middle
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="verticalAlign" value="bottom"> bottom
+						</label>
+					</td>
+				</tr>
+				<tr align="center" style="background-color:#f9f9f9;">
+					<td colspan="2"><button type="button" id="positionBtn" class="btn btn-default" onclick="api_position()">align : <var>center</var>, verticalAlign : <var>top</var></button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!", {align:"center", verticalAlign:"top"});</pre>
+	
+</div>
+<div class="container">
+	<h2 id="delay">Delay</h2>
+	
+	<form class="form-inline" style="margin-bottom:15px;">
+		<div class="form-group">
+			<input class="form-control" id="delayValue" type="text" value="3000" placeholder="milliseconds" style="width:60px;display:inline-block;">
+			<button type="button" class="btn btn-default" onclick="api_delay()">Alert!</button>
+		</div>
+	</form>
+	<pre class="prettyprint">$.notify("Alert!", {delay:2000});</pre>
+</div>
+<div class="container">
+	<h2>Animation</h2>
+
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!')">Animation ('true')</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!',{animation:false})">Not Animation ('false')</button>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!", {animation:true});</pre>
+</div>
+<div class="container">
+	<h2>AnimationType</h2>
+
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!')">drop</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!',{animationType:'scale'})">scale</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!',{animationType:'fade'})">fade</button>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!", {animationType:"drop"});</pre>
+</div>
+
+<div class="container">
+	<h2 id="color">Color</h2>
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {color: '#d44950'})" style="color:#d44950">#D44950</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {color: '#4B7EE0'})" style="color:#4B7EE0">#4B7EE0</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {color: '#20D67B'})" style="color:#20D67B">#20D67B</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {color: '#A5881B'})" style="color:#A5881B">#A5881B</button>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!", {color: "#D44950"});</pre>
+</div>
+<div class="container">
+	<h2 id="background">Background</h2>
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {color: '#fff', background: '#D44950'})" style="background-color:#d44950;color:#fff;">#D44950</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {color: '#fff', background: '#4B7EE0'})" style="background-color:#4B7EE0;color:#fff;">#4B7EE0</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {color: '#fff', background: '#20D67B'})" style="background-color:#20D67B;color:#fff;">#20D67B</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {color: '#fff', background: '#A5881B'})" style="background-color:#A5881B;color:#fff;">#A5881B</button>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!", {color: "#fff", background: "#D44950"});</pre>
+</div>
+
+<div class="container">
+	<h2 id="Icon">Icon</h2>
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="$.notify('Success', {type: 'success', icon:'check'})">check</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Fail', {type: 'success', icon:'close'})">close</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Info', {type: 'success', icon:'exclamation'})">exclamation</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert', {type: 'success', icon:'bell'})">bell</button>
+	</div>
+	<pre class="prettyprint"><xmp><!-- Font Awesome Css Include -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></xmp>$.notify("Success", {type: "info", icon:"check"});
+	</pre>
+</div>
+<div class="container">
+	<h2 id="class">Class</h2>
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="$.notify('<h1>Hello World!</h1>', {class:'my-class', delay:0, align:'center', verticalAlign:'middle', animationType:'scale'})">Alert!</button>
+	</div>
+	<pre class="prettyprint">$.notify("<code><span>Hello World!</code>", {class:"my-class", delay:0, align:"center", verticalAlign:"middle", animationType:"scale"});
+	
+.my-class{
+   background: #304CD8;
+   background: -webkit-linear-gradient(left, #304CD8 0%, #9F3762 100%);
+   background: -ms-linear-gradient(left, #304CD8 0%, #9F3762 100%);
+   background: linear-gradient(to right, #304CD8 0%, #9F3762 100%);
+   color: #fff;
+   font-size: 25px;
+   padding: 35px;
+   text-align: center;
+}
+</pre>
+</div>
+<div class="container">
+	<h2 id="blur">Blur</h2>
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {blur: 0.2, delay: 0})">0.2</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {blur: 0.4, delay: 0})">0.4</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {blur: 0.6, delay: 0})">0.6</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {blur: 0.8, delay: 0})">0.8</button>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!", {blur: 0.2, delay: 0});</pre>
+</div>
+<div class="container">
+	<h2 id="close">Close</h2>
+	<div class="button-list">
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {close: true})">true</button>
+		<button type="button" class="btn btn-default" onclick="$.notify('Alert!', {close: false})">false</button>
+	</div>
+	<pre class="prettyprint">$.notify("Alert!", {close: true});</pre>
+</div>
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="js/notify.js"></script>
+<script src="js/prettify.js"></script>
+<script type="text/javascript">
+	
+	function usage(){
+		$.notify("Alert!");
+	}
+
+	function api_type(type){
+		$.notify("Alert!", {type:type});
+	}
+
+	function api_position(){
+		var an = $(":radio[name=align]:checked").val();
+		var vn = $(":radio[name=verticalAlign]:checked").val();
+		$.notify("Alert!", {align:an, verticalAlign:vn});
+	}
+
+	function api_delay(){
+		$.notify("Alert!", {delay: $("#delayValue").val()});	
+	}
+
+	function myFunc(){
+		alert("삭제하였습니다");
+	}
+
+	function example1(){
+		$.notify({
+			delay : 999999,
+			message : "hello world!hello world!hello world!hello world!hello world!hello world!hello world!hello world!hello world!hello world!",
+			type : "warning",
+			close : "true",
+			animation : true,
+			animationType : "scale",
+			align: "center",
+			verticalAlign: "middle",
+			color: "#777",
+			background: "#eee"
+		});
+	}
+
+	function example2(){
+		$.notify({
+			delay : 0,
+			message : "hello world!",
+			animation : true,
+			align: "center",
+			verticalAlign: "middle",
+			buttons: ["확인","취소"],
+			buttonFunc: ["test"],
+			buttonAlign: "right",
+			blur: 0.2
+		});
+	}
+
+	function test(){
+		alert("확인");
+	}
+
+	$(function(){
+		$("input[name=align]:radio").change(function(){
+			$("#positionBtn").html("align : <var>"+$(this).val()+"</var>, verticalAlign : <var>"+$(":radio[name=verticalAlign]:checked").val()+"</var>");
+		});
+		$("input[name=verticalAlign]:radio").change(function(){
+			$("#positionBtn").html("align : <var>"+$(":radio[name=align]:checked").val()+"</var>, verticalAlign : <var>"+$(this).val()+"</var>");
+		});
+	});
+
+
+	!function ($) {
+		$(function(){
+			window.prettyPrint && prettyPrint()   
+		})
+	}(window.jQuery)
+
+
+
+</script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
